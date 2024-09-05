@@ -7,6 +7,8 @@ import { HighLightedVideo } from "@/app/ui/landing/Highlighted-Video";
 import { FeaturesOnlyText } from "@/app/ui/landing/Features-only-text";
 import { FeaturesWithimages } from "@/app/ui/landing/Features-with-images";
 import { HighlightedImage } from "@/app/ui/landing/Highlighted-Image";
+import { Trust } from "@/app/ui/landing/Trust";
+import { Testinomials } from "@/app/ui/landing/Testinomials";
 import { Pricing } from "@/app/ui/landing/Pricing";
 import { Footer } from "@/app/ui/landing/Footer";
 import highlightedVideoImg from "@/public/assets/landing/features/images/highlighted-video-image.png";
@@ -81,7 +83,7 @@ export default function Home() {
 
       {/* All other things in wrapper */}
 
-      <div className="content-wrappper w-full max-w-screen-2xl flex flex-col items-center justify-center gap-36">
+      <div className="content-wrappper w-full max-w-screen-xl flex flex-col items-center justify-center gap-36">
         <div className="companies w-full h-fit flex items-center justify-center">
           <div className="w-fit h-fit highlighted-video flex items-center justify-center">
             <HighLightedVideo videoData={highlightedImgVideoData} />
@@ -97,6 +99,19 @@ export default function Home() {
 
       <div className="highlighted-image w-full h-fit flex items-center justify-center">
         <HighlightedImage />
+      </div>
+
+      <div className="content-wrapper w-full max-w-screen-2xl flex items-center justify-center flex-col gap-36">
+        <div className="trust-tab w-full h-fit">
+          <Trust />
+        </div>
+        <div className="testinomials w-full h-fit">
+          <Testinomials />
+        </div>
+      </div>
+
+      <div className="footer-wrapper w-full h-fit">
+        <Footer />
       </div>
     </div>
   );
