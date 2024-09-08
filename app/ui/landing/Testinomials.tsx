@@ -61,38 +61,39 @@ export function Testinomials(): JSX.Element {
   return (
     <section className="testinomials w-full flex flex-col gap-16 items-center justify-center h-fit">
       <div className="heading-and-description w-fit h-fit text-center flex flex-col items-center justify-center gap-4">
-        <div className="heading w-fit h-fit text-transparent bg-gradient-to-tr text-lg bg-clip-text from-purple-400 to-neutral-200">
+        <div className="heading w-fit h-fit text-transparent bg-gradient-to-tr text-base md:text-lg bg-clip-text dark:from-purple-400 from-purple-800 dark:to-neutral-200 to-neutral-700 font-semibold">
           Testinomials
         </div>
-        <div className="description w-fit h-fit text-3xl text-neutral-200 font-bold">
+        <div className="description w-fit h-fit md:text-3xl text-2xl dark:text-neutral-200 text-neutral-700 font-bold">
           Hear from our customers
         </div>
       </div>
-      <div className="relative content-warpper w-fit h-fit flex flex-row gap-6 justify-center">
-        {testinomialsData.map((testinomialObjects, index) => (
+      <div className="relative content-warpper w-fit h-fit flex flex-col md:flex-row gap-4 md:gap-6 justify-center p-4">
+        {testinomialsData.map((testinomialObjects, index1) => (
           <div
-            className={`content-testinomial-wrapper w-full h-fit flex flex-col gap-6 items-center ${
-              index % 2 !== 0 ? "translate-y-8" : null
+          key={index1}
+            className={`content-testinomial-wrapper w-full h-fit flex flex-col md:gap-6 gap-4 items-center ${
+              index1 % 2 !== 0 ? "md:translate-y-8" : null
             }`}
           >
-            {testinomialObjects.map((data, index) => (
-              <div className="testinomials w-[289px] h-fit p-6 bg-[#1f1f22] flex flex-col rounded-2xl border-2 border-[#2d2d32] gap-4">
-                <div className="img-name-designation flex flex-row items-center gap-4">
+            {testinomialObjects.map((data, index2) => (
+              <div key={index2} className="testinomials w-fit text-wrap md:max-w-[289px] min-w-[204px] h-fit p-6 dark:bg-[#1f1f22] bg-[#ebebee] flex flex-col rounded-2xl border-2 dark:border-[#2d2d32] border-[#d4d4d8] gap-4">
+                <div className="img-name-designation flex flex-row items-center md:gap-4 gap-2 ">
                   <div className="image w-fit h-fit">
                     <Image
                       src={data.image}
                       width={50}
                       height={50}
-                      className="rounded-full"
+                      className="rounded-full w-[40px] h-[40px] md:w-[50px] md:h-[50px]"
                       alt="feedback-persons"
                     />
                   </div>
                   <div className="name-designation">
-                    <div className="name font-bold text-lg">{data.name}</div>
-                    <div className="designation text-sm text-neutral-300">{data.designation}</div>
+                    <div className="name font-bold text-base md:text-lg text-neutral-800 dark:text-neutral-200">{data.name}</div>
+                    <div className="designation text-xs md:text-sm text-neutral-700 dark:text-neutral-300">{data.designation}</div>
                   </div>
                 </div>
-                <div className="testinomial">{data.testinomial}</div>
+                <div className="testinomial text-neutral-800 dark:text-neutral-200 md:text-base text-sm">{data.testinomial}</div>
               </div>
             ))}
           </div>

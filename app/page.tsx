@@ -1,8 +1,7 @@
 "use client";
 
-import { Navbar } from "@/app/ui/landing/Navbar";
 import { Hero } from "@/app/ui/landing/Hero";
-import { Companies } from "@/app/ui/landing/Comapmies";
+import { Companies } from "@/app/ui/landing/Companies";
 import { HighLightedVideo } from "@/app/ui/landing/Highlighted-Video";
 import { FeaturesOnlyText } from "@/app/ui/landing/Features-only-text";
 import { FeaturesWithimages } from "@/app/ui/landing/Features-with-images";
@@ -10,6 +9,8 @@ import { HighlightedImage } from "@/app/ui/landing/Highlighted-Image";
 import { Trust } from "@/app/ui/landing/Trust";
 import { Testinomials } from "@/app/ui/landing/Testinomials";
 import { Pricing } from "@/app/ui/landing/Pricing";
+import { FAQ } from "@/app/ui/landing/FAQ";
+import { EndHighlight } from "@/app/ui/landing/End-Highlight";
 import { Footer } from "@/app/ui/landing/Footer";
 import highlightedVideoImg from "@/public/assets/landing/features/images/highlighted-video-image.png";
 import featureImg1 from "@/public/assets/landing/features/images/image-1.png";
@@ -47,12 +48,12 @@ export default function Home() {
   ];
 
   return (
-    <div className="w-full h-fit flex flex-col gap-28 items-center justify-center">
-      <div className="relative upper-part-nav-and-hero flex flex-col items-center justify-center">
+    <div className="w-full h-fit flex flex-col gap-20 items-center justify-center">
+      <div className="relative upper-part-nav-and-hero flex w-full h-fit flex-col items-center justify-center">
         {/* Gradient */}
 
         <div className="gradient-container top-0 z-0 absolute flex items-center w-full justify-center">
-          <div className="gradint-bg relative inset-0 bg-transparent bg-gradient-to-b from-[#7f40ef] to-black blur-3xl w-3/4 h-96 opacity-75 rounded-b-[90%]"></div>
+          <div className="gradint-bg relative inset-0 bg-transparent bg-gradient-to-b from-[#6e3ec0] to-black blur-2xl w-[45%] h-52 dark:opacity-65 opacity-30 rounded-b-[90%]"></div>
         </div>
         {/* Grids */}
         <div className="grids -z-10 absolute bg-transparent flex items-center justify-center w-full h-full overflow-clip">
@@ -60,22 +61,21 @@ export default function Home() {
             {Array.from({ length: 296 }).map((_, index) => (
               <div
                 key={index}
-                className="w-[20%] sm:w-[10%] md:w-[8.5%] lg:w-[7%] h-[10%] xl:h-[15%] border border-gray-900"
+                className="w-[20%] sm:w-[10%] md:w-[8.5%] lg:w-[7%] h-[10%] xl:h-[15%] border dark:border-neutral-900 border-neutral-300"
               ></div>
             ))}
           </div>
         </div>
-        {/* Navbar */}
         <div className="top-under-warpper w-full h-fit flex flex-col gap-24 items-center justify-center">
           <div className="content-wrapper w-full max-w-screen-2xl flex flex-col gap-28">
             <div className="relative navbar w-full h-fit z-10">
-              <Navbar />
+              {/* <Navbar /> */}
             </div>
             <div className="relative hero w-full h-fit z-10">
               <Hero />
             </div>
           </div>
-          <div className="companies w-full h-fit bg-black">
+          <div className="companies w-full h-fit dark:bg-black bg-[#d7dcdd] flex inset-0">
             <Companies />
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function Home() {
 
       {/* All other things in wrapper */}
 
-      <div className="content-wrappper w-full max-w-screen-xl flex flex-col items-center justify-center gap-36">
+      <div className="content-wrappper w-full max-w-screen-xl flex flex-col items-center justify-center gap-16 sm:gap-20 md:gap-28 lg:gap-36">
         <div className="companies w-full h-fit flex items-center justify-center">
           <div className="w-fit h-fit highlighted-video flex items-center justify-center">
             <HighLightedVideo videoData={highlightedImgVideoData} />
@@ -107,6 +107,15 @@ export default function Home() {
         </div>
         <div className="testinomials w-full h-fit">
           <Testinomials />
+        </div>
+        <div className="pricing-tab w-full h-fit">
+          <Pricing />
+        </div>
+        <div className="FAQ w-full h-fit">
+          <FAQ />
+        </div>
+        <div className="end-highlight w-full h-fit">
+          <EndHighlight />
         </div>
       </div>
 

@@ -46,17 +46,24 @@ export function FeaturesOnlyText(): JSX.Element {
   ];
 
   return (
-    <section className="w-full h-fit flex flex-row ">
-      <div className="content-wrapper flex w-fit h-fit flex-row flex-wrap gap-6 justify-center">
+    <section className="w-full h-fit flex flex-row items-center justify-center">
+      <div className="content-wrapper flex w-fit h-fit sm:flex-row flex-col sm:flex-wrap gap-6 justify-center p-4">
         {featuresData.map((data, index) => (
-          <div className="card-wrapper flex flex-col w-[454px] h-fit gap-2">
+          <div
+            key={index}
+            className="card-wrapper flex flex-col w-fit text-wrap max-w-[454px] h-fit gap-2"
+          >
             <div className="head-and-icon flex flex-row gap-2 w-fit h-fit items-center">
-              <div className="icon w-fit h-fit text-purple-300 flex items-center">
-                <data.icon className="text-lg" />
+              <div className="icon w-fit h-fit text-neutral-800 dark:text-neutral-200 flex items-center">
+                <data.icon className="md:text-lg text-base" />
               </div>
-              <div className="head text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-br from-purple-200 to-neutral-400">{data.heading}</div>
+              <div className="head text-base md:text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-br dark:from-purple-200 from-purple-800 to-black dark:to-neutral-400">
+                {data.heading}
+              </div>
             </div>
-            <div className="description">{data.description}</div>
+            <div className="description text-neutral-800 dark:text-neutral-200 md:text-base text-sm">
+              {data.description}
+            </div>
           </div>
         ))}
       </div>

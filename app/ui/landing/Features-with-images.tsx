@@ -34,18 +34,19 @@ export function FeaturesWithimages(): JSX.Element {
       <div className="content-wrapper-deep flex flex-col w-fit-h-fit items-center justify-center gap-28 p-6">
         {FeaturesData.map((data, index) => (
           <div
+            key={index}
             className={`data-conatiner-features flex items-center justify-evenly gap-8 ${
               index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             } flex-col`}
           >
             <div className="text-all w-full max-w-[494px] md:w-[45%] md:max-w-[553px] flex flex-col h-fit gap-3">
-              <div className="heading w-fit h-fit text-transparent bg-clip-text bg-gradient-to-tr from-purple-400 to-neutral-300 font-bold">
+              <div className="heading w-fit h-fit text-transparent bg-clip-text bg-gradient-to-tr dark:from-purple-400 from-purple-700 dark:to-neutral-300 to-neutral-700 font-bold md:text-base text-sm">
                 {data.heading}
               </div>
-              <div className="subheading w-fit h-fit text-2xl font-semibold text-neutral-100">
+              <div className="subheading w-fit h-fit md:text-2xl text-xl font-semibold dark:text-neutral-100 text-neutral-900">
                 {data.subheading}
               </div>
-              <div className="description w-fit h-fit text-neutral-400">
+              <div className="description w-fit h-fit dark:text-neutral-400 text-neutral-800 md:text-base text-sm">
                 {data.description}
               </div>
             </div>
@@ -54,7 +55,7 @@ export function FeaturesWithimages(): JSX.Element {
                 src={data.image}
                 alt="image-holder"
                 aria-hidden
-                className="object-cover w-[400px] sm:w-[500px] rounded-lg p-1 bg-transparent bg-clip-border bg-gradient-to-tr from-purple-900 to-purple-300"
+                className="object-cover w-[400px] sm:w-[500px] rounded-xl p-1 bg-transparent bg-clip-border bg-gradient-to-tr dark:from-purple-900 from-purple-500 to-purple-300"
               />
             </div>
           </div>

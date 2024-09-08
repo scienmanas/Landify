@@ -17,20 +17,20 @@ export function HighLightedVideo({ videoData }: VideoProps): JSX.Element {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
-    <div className="relative highlightedVideo w-full h-fit flex flex-col items-center justify-center gap-8">
+    <div className="relative highlightedVideo w-full h-fit flex flex-col items-center justify-center gap-8 p-8">
       <div className="head-and-description flex flex-col gap-4 items-center justify-center">
-        <h1 className="w-fit h-fit text-center text-transparent bg-clip-text bg-gradient-to-br from-purple-400 to-purple-200 text-lg font-bold">
+        <h1 className="w-fit h-fit text-center text-transparent bg-clip-text bg-gradient-to-br dark:from-purple-400 from-purple-700 dark:to-purple-200 to-neutral-700 sm:text-lg text-base font-bold ">
           {videoData.heading}
         </h1>
-        <p className="w-fit h-fit text-center text-2xl text-transparent bg-clip-text bg-gradient-to-tr from-purple-200 to-slate-500 font-semibold">
+        <p className="w-fit h-fit text-center sm:text-2xl text-xl text-transparent bg-clip-text bg-gradient-to-tr dark:from-purple-200 dark:to-slate-500 from-neutral-800 to-neutral-900 font-semibold">
           {videoData.description}
         </p>
       </div>
-      <div className="relative video-image-placeholder border-transparent bg-clip-border bg-gradient-to-br from-purple-700 to-purple-300 border-[6px] rounded-xl w-full h-fit before:absolute before:h-[300px] before:w-full before:bg-gradient-radial before:from-purple-300 before:to-black before:blur-2xl before:content-[''] before:right-14 before:-top-14 after:absolute after:h-[300px] after:w-full after:bg-gradient-radial after:from-purple-300 after:to-black after:blur-2xl after:content-[''] after:left-14 after:-bottom-12 after:z-0 ">
+      <div className="relative video-image-placeholder rounded-xl w-full h-fit before:absolute before:h-[100%] before:w-full before:bg-gradient-radial before:from-purple-500 before:to-purple-800 dark:to-black before:opacity-60 before:blur-2xl before:content-[''] before:right-5 before:-top-5 after:absolute after:h-[100%] after:w-full after:bg-gradient-radial after:from-purple-500 dark:after:to-purple-500 after:to-purple-800 after:blur-2xl after:opacity-60 after:content-[''] after:left-5 after:-bottom-5 after:z-0">
         {!isVideoPlayed && (
-          <div className="relative z-10 placehold-image w-[800px] flex items-center justify-center">
+          <div className="relative z-10 placehold-image  md:w-[700px] lg:w-[800px] flex items-center justify-center">
             <Image
-              className="w-full relative"
+              className="w-full relative rounded-xl"
               src={videoData.img}
               alt="placeholder-img"
             />
@@ -39,11 +39,11 @@ export function HighLightedVideo({ videoData }: VideoProps): JSX.Element {
                 setIsVideoPlayed(true);
                 videoRef.current?.play();
               }}
-              className="absolute z-10 p-4 w-full h-full flex items-center justify-center group"
+              className="absolute z-10 p-4 w-full h-full flex items-center justify-center"
             >
-              <div className="relative w-fit h-fit flex justify-center items-center group">
-                <div className="z-0 absolute shadow-pulsing bg-transparent bg-gradient-radial w-[120%] h-[120%] blur-2xl group-hover:w-[150%] group-hover:h-[150%] "></div>
-                <IoPlayOutline className=" relative z-10 text-6xl border-[3px] w-fit h-fit p-4 rounded-full flex items-center justify-center border-purple-300 group-hover:scale-105 duration-300 " />
+              <div className="relative w-fit h-fit flex justify-center items-center group bg-[#27272a] rounded-full">
+                <div className="z-0 absolute shadow-pulsing bg-transparent bg-gradient-radial w-[120%] h-[120%] blur-2xl hover:w-[150%] hover:h-[150%] "></div>
+                <IoPlayOutline className=" relative z-10 lg:text-6xl md:text-4xl sm:text-3xl text-2xl border-[2px] border-[#8b5cf6] text-white w-fit h-fit p-4 rounded-full flex items-center justify-center group-hover:scale-105 duration-300 " />
               </div>
             </button>
           </div>
