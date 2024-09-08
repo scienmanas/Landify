@@ -8,7 +8,7 @@ import displayImg from "@/public/assets/metadata/display.png";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://certimailer.xyz"),
+  metadataBase: new URL("https://landify-sepia.vercel.app"),
   title: "Landify",
   description:
     "An awesome template to make your landing page faster. Make the landing page of your next SaaS impressive nad awesome.",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Landingo",
     description:
       "An awesome template to make your landing page faster. Make the landing page of your next SaaS impressive nad awesome.",
-    url: "https://www.certimailer.xyz", // replace with your actual domain
+    url: "https://landify-sepia.vercel.app", // replace with your actual domain
     type: "website",
     locale: "en_US",
     siteName: "Landingo",
