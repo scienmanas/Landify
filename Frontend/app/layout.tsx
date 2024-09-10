@@ -4,6 +4,7 @@ import "./globals.css";
 import { Viewport } from "next";
 import { Navbar } from "@/app/ui/landing/Navbar";
 import displayImg from "@/public/assets/metadata/display.png";
+import { ThemeProvider } from "next-themes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Landingo",
+    title: "Landify",
     description:
       "An awesome template to make your landing page faster. Make the landing page of your next SaaS impressive nad awesome.",
     // site: "@certimailer", // replace with your actual Twitter handle
@@ -47,8 +48,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`{inter.className}`}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} bg-white dark:bg-[#18181b]`}>
+        <ThemeProvider attribute="class">
+          <div className="page-contents relative w-full h-fit flex flex-col items-center justify-center">
+            <section className="nav z-10 fixed flex w-full h-fit top-0 items-center justify-center">
+              <Navbar />
+            </section>
+            <section className="relative z-0 child-body">{children}</section>
+          </div>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

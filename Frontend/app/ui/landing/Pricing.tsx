@@ -70,7 +70,10 @@ export function Pricing(): JSX.Element {
   ];
 
   return (
-    <section className="w-full h-fit flex flex-col flex-wrap gap-12 items-center justify-center">
+    <section
+      id="pricing"
+      className="w-full h-fit flex flex-col flex-wrap gap-12 items-center justify-center"
+    >
       <div className="head-description-button flex flex-col items-center justify-center w-fit h-fit gap-4">
         <div className="heading w-fit h-fit text-lg text-transparent  bg-clip-text bg-gradient-to-tr dark:from-purple-400 from-purple-800 dark:to-neutral-100 to-neutral-700">
           Pricing
@@ -86,7 +89,9 @@ export function Pricing(): JSX.Element {
             <div className="text">Monthly</div>
             <div
               className={`relative button-out-and-in w-12 h-fit border ${
-                pricedYearly ? "border-purple-800" : "dark:border-[#414147] border-[#c4c4c8]"
+                pricedYearly
+                  ? "border-purple-800"
+                  : "dark:border-[#414147] border-[#c4c4c8]"
               } dark:bg-[#27272a] bg-neutral-300 rounded-2xl p-[2px] items-center flex duration-300 justify-start`}
             >
               <div
@@ -110,7 +115,9 @@ export function Pricing(): JSX.Element {
             )}
             <div
               className={`plan-all-details-wrapper relative z-10 px-6 py-4 w-fit h-full flex ${
-                pricingData.plan === "Professional" ? "dark:bg-[#27272a] bg-neutral-200" : null
+                pricingData.plan === "Professional"
+                  ? "dark:bg-[#27272a] bg-neutral-200"
+                  : null
               } rounded-xl flex-col justify-between gap-8`}
             >
               <div className="deatils w-[243px] flex flex-col gap-5">
@@ -138,7 +145,9 @@ export function Pricing(): JSX.Element {
                             ? pricingData.pricePerYearOneMonth
                             : pricingData.pricePerMonth}
                         </span>
-                        <span className="font-semibold text-3xl text-neutral-800 dark:text-neutral-200">/mon</span>
+                        <span className="font-semibold text-3xl text-neutral-800 dark:text-neutral-200">
+                          /mon
+                        </span>
                       </div>
                       <div className="billedDuration dark:text-neutral-400 text-neutral-700">
                         ({pricingData.billedDuration})

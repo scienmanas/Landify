@@ -13,7 +13,7 @@ export function EndHighlight(): JSX.Element {
           <div className="z-0 p-2 absolute border-effect w-[100.5%] h-[100.8%] bg-transparent bg-gradient-to-br dark:from-purple-800 dark:to-[#3b3b42] from-purple-300 to-[#d4d4d8]  rounded-xl"></div>
           <div className="relative z-10 conent-wrapper-content w-full h-fit dark:bg-[#27272a] bg-neutral-100 rounded-xl">
             <div className="z-20 p-2 absolute gradient-effect w-full h-full bg-transparent bg-gradient-to-br from-purple-800 dark:to-[#3b3b42] to-60%  opacity-30 rounded-xl"></div>
-            <div className="conents-all flex flex-row flex-wrap gap-6 items-end justify-between py-10 px-6 sm:px-10 md:px-12 md:py-16 lg:px-16 lg:py-20">
+            <div className="relative conents-all z-30 flex flex-row flex-wrap gap-6 items-end justify-between py-10 px-6 sm:px-10 md:px-12 md:py-16 lg:px-16 lg:py-20">
               <div className="relative z-30 w-fit h-fit all-content-wrapper flex flex-col gap-6 rounded-xl">
                 <div className="heading text-transparent bg-clip-text bg-gradient-to-tr dark:from-purple-400 from-purple-700 dark:to-neutral-300 to-neutral-800 w-fit h-fit md:text-base text-sm">
                   {data.heading}

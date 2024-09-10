@@ -53,7 +53,7 @@ export default function Home() {
         {/* Gradient */}
 
         <div className="gradient-container top-0 z-0 absolute flex items-center w-full justify-center">
-          <div className="gradint-bg relative inset-0 bg-transparent bg-gradient-to-b from-[#6e3ec0] to-black blur-2xl w-[45%] h-52 dark:opacity-65 opacity-30 rounded-b-[90%]"></div>
+          <div className="gradint-bg relative inset-0 bg-transparent bg-gradient-to-b from-purple-500 to-white dark:to-black blur-2xl w-[45%] h-52 dark:opacity-65 opacity-30 rounded-b-[90%]"></div>
         </div>
         {/* Grids */}
         <div className="grids -z-10 absolute bg-transparent flex items-center justify-center w-full h-full overflow-clip">
@@ -61,7 +61,7 @@ export default function Home() {
             {Array.from({ length: 296 }).map((_, index) => (
               <div
                 key={index}
-                className="w-[20%] sm:w-[10%] md:w-[8.5%] lg:w-[7%] h-[10%] xl:h-[15%] border dark:border-neutral-900 border-neutral-300"
+                className="w-[20%] sm:w-[10%] md:w-[8.5%] lg:w-[7%] h-[10%] xl:h-[15%] border dark:border-[#212125] border-neutral-100"
               ></div>
             ))}
           </div>
@@ -75,7 +75,7 @@ export default function Home() {
               <Hero />
             </div>
           </div>
-          <div className="companies w-full h-fit dark:bg-black bg-[#d7dcdd] flex inset-0">
+          <div className="companies w-full h-fit dark:bg-[#161619] bg-white flex inset-0">
             <Companies />
           </div>
         </div>
