@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { Viewport } from "next";
 import { Navbar } from "@/app/ui/universal/Navbar";
 import displayImg from "@/public/assets/metadata/display.png";
 import { ThemeProvider } from "next-themes";
+import { Footer } from "@/app/ui/universal/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -50,7 +51,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-white dark:bg-[#18181b]`}>
-        <ThemeProvider attribute="class">{children}</ThemeProvider>
+        <ThemeProvider attribute="class">
+          <div className="page-contents relative w-full h-fit flex flex-col items-center justify-center gap-28">
+            <section className="nav z-10 fixed flex w-full h-fit top-0 items-center justify-center">
+              <Navbar />
+            </section>
+            <section className="relative z-0 child-body w-full h-fit">
+              {children}
+            </section>
+            <section className="w-full">
+              <Footer />
+            </section>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

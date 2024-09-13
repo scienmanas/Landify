@@ -2,16 +2,16 @@
 
 import { Hero } from "@/app/ui/landing/Hero";
 import { Companies } from "@/app/ui/landing/Companies";
-import { HighLightedVideo } from "@/app/ui/landing/Highlighted-Video";
-import { FeaturesOnlyText } from "@/app/ui/landing/Features-only-text";
-import { FeaturesWithimages } from "@/app/ui/landing/Features-with-images";
-import { HighlightedImage } from "@/app/ui/landing/Highlighted-Image";
+import { HighLightedVideo } from "@/app/ui/landing/hero-video";
+import { FeaturesOnlyText } from "@/app/ui/landing/features";
+import { FeaturesWithimages } from "@/app/ui/landing/features-cum-images";
+import { HighlightedImage } from "@/app/ui/landing/spotlight-image";
 import { Trust } from "@/app/ui/landing/Trust";
 import { Testinomials } from "@/app/ui/landing/Testinomials";
 import { Pricing } from "@/app/ui/landing/Pricing";
 import { FAQ } from "@/app/ui/landing/FAQ";
-import { EndHighlight } from "@/app/ui/landing/End-Highlight";
-import { Footer } from "@/app/ui/landing/Footer";
+import { EndHighlight } from "@/app/ui/landing/end-card";
+import { Footer } from "@/app/ui/universal/Footer";
 import highlightedVideoImg from "@/public/assets/landing/features/images/highlighted-video-image.png";
 import featureImg1 from "@/public/assets/landing/features/images/image-1.png";
 import featureImg2 from "@/public/assets/landing/features/images/image-2.png";
@@ -66,11 +66,8 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="top-under-warpper w-full h-fit flex flex-col gap-24 items-center justify-center">
+        <div className="relative z-10  top-under-warpper w-full h-fit flex flex-col gap-24 items-center justify-center mt-20 md:mt-24 lg:mt-28">
           <div className="content-wrapper w-full max-w-screen-2xl flex flex-col gap-28">
-            <div className="relative navbar w-full h-fit z-10">
-              {/* <Navbar /> */}
-            </div>
             <div className="relative hero w-full h-fit z-10">
               <Hero />
             </div>
@@ -117,10 +114,6 @@ export default function Home() {
         <div className="end-highlight w-full h-fit">
           <EndHighlight />
         </div>
-      </div>
-
-      <div className="footer-wrapper w-full h-fit">
-        <Footer />
       </div>
     </div>
   );

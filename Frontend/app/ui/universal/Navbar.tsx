@@ -54,7 +54,7 @@ export function Navbar(): JSX.Element {
       className={`w-full h-fit flex items-center justify-center bg-transparent dark:bg-transparent dark:bg-neutral-800 bg-[#f3f3f5] transition-all duration-300 border-b border-transparent
     ${
       isScrolled
-        ? "backdrop-blur-sm dark:border-[#3c3c43] border-[#bfbfbf] dark:bg-opacity-55 bg-opacity-55"
+        ? "backdrop-blur-sm dark:border-[#3c3c43] border-[#bfbdbd] dark:bg-opacity-55 bg-opacity-55"
         : "dark:bg-opacity-0 bg-opacity-0"
     }`}
     >
