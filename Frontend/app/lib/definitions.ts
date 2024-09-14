@@ -15,10 +15,10 @@ export type FeaturesOnlyTextProps = {
 export type BlogPostMetaDataProps = {
   cardData: {
     title: string;
-    image: StaticImageData;
+    image: string;
     publishDate: string;
     description: string;
-    tage: string[];
+    tags: string[];
     slug: string;
   };
 };

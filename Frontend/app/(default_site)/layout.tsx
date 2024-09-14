@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://landify-sepia.vercel.app"),
-  title: "Landify",
+  title: "Blogs - Landify",
   description:
     "An awesome template to make your landing page faster. Make the landing page of your next SaaS impressive nad awesome.",
   keywords:
@@ -52,7 +52,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-white dark:bg-[#18181b]`}>
         <ThemeProvider attribute="class">
-          <div className="page-contents relative w-full h-fit flex flex-col items-center justify-center gap-28">
+          <div className="page-contents relative w-full h-fit flex flex-col items-center justify-center gap-16">
             <section className="nav z-10 fixed flex w-full h-fit top-0 items-center justify-center">
               <Navbar />
             </section>

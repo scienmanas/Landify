@@ -8,7 +8,7 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="page-contents relative w-full h-fit flex flex-col items-center justify-center mt-20 sm:mt-28 p-4">
+    <div className="page-contents relative w-full h-fit flex flex-col items-center justify-center">
       {children}
     </div>
   );

@@ -39,6 +39,6 @@
 }
 
 
-
-
-
+.markdown p {
+  margin-bottom: 16px; /* Adjust as necessary */
+}

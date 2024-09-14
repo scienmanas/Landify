@@ -11,7 +11,6 @@ import { Testinomials } from "@/app/ui/landing/Testinomials";
 import { Pricing } from "@/app/ui/landing/Pricing";
 import { FAQ } from "@/app/ui/landing/FAQ";
 import { EndHighlight } from "@/app/ui/landing/end-card";
-import { Footer } from "@/app/ui/universal/Footer";
 import highlightedVideoImg from "@/public/assets/landing/features/images/highlighted-video-image.png";
 import featureImg1 from "@/public/assets/landing/features/images/image-1.png";
 import featureImg2 from "@/public/assets/landing/features/images/image-2.png";
