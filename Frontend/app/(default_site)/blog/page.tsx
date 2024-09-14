@@ -1,6 +1,34 @@
 import { getBlogPostMetadata } from "@/app/utils/getBlogData";
 import { BlogCard } from "@/app/ui/blog/blog-card";
-import { BlogPostMetaDataProps } from "@/app/lib/definitions";
+import { Metadata } from "next";
+import metaDataImg from "@/public/assets/metadata/blog/display.png";
+
+// Generate the meta data
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    metadataBase: new URL(process.env.DOMAIN as string),
+    title: `Blogs - ${process.env.SITE_NAME}`,
+    description: "Read the blogs, discover phenomenal things happeing around",
+    keywords: ["reading", "article", "tech", "knowledge"],
+    robots: "index, follow",
+    openGraph: {
+      title: `Blogs - ${process.env.SITE_NAME}`,
+      description: "Read the blogs, discover phenomenal things happeing around",
+      url: `${process.env.DOMAIN}/blog`,
+      images: [metaDataImg.src],
+      type: "article",
+      siteName: `${process.env.SITE_NAME}`,
+      locale: "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `Blogs - ${process.env.SITE_NAME}`,
+      description: "Read the blogs, discover phenomenal things happeing around",
+      images: [metaDataImg.src],
+      creator: "@ScientistManas",
+    },
+  };
+}
 
 export default function Blog(): JSX.Element {
   const postMetadata = getBlogPostMetadata("blogs");

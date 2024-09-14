@@ -1,5 +1,6 @@
 ---
-publishDate: Sept 4, 2024
+publishedDate: 2024-09-14T00:00:00Z
+head: Sample Blog
 title: This is sample blog, you can replace this with your own blog.
 description: Legere de internis innovationis cosmicae Provocationis Victoribus Tractus Sustinendi Spatii.
 tags:

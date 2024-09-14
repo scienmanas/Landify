@@ -1,4 +1,5 @@
 import { BsCalendar2Date } from "react-icons/bs";
+import { getFormattedDate } from "@/app/utils/dateFormatter";
 import Image from "next/image";
 import Link from "next/link";
 import { BlogPostMetaDataProps } from "@/app/lib/definitions";
@@ -21,11 +22,11 @@ export function BlogCard({ cardData }: BlogPostMetaDataProps): JSX.Element {
         </Link>
       </div>
       <div className="relative metadata flex flex-col items-start gap-4 max-w-[448px] text-wrap w-fit h-full">
-        <div className="heading-publishdate-readingtime w-fit h-fit flex flex-col gap-2">
+        <div className="heading-publisheddate-readingtime w-fit h-fit flex flex-col gap-2">
           <div className="publish-date flex flex-row gap-2 items-center w-fit h-fit">
             <BsCalendar2Date className="text-base text-neutral-800 dark:text-neutral-200" />
             <span className="text-sm sm:text-base font-semibold text-neutral-600 dark:text-neutral-400">
-              {cardData.publishDate}
+              {getFormattedDate(cardData.publishedDate)}
             </span>
           </div>
           <div className="title-and-description flex flex-col text-wrap gap-1 w-fit h-fit">

@@ -16,7 +16,7 @@ export type BlogPostMetaDataProps = {
   cardData: {
     title: string;
     image: string;
-    publishDate: string;
+    publishedDate: string;
     description: string;
     tags: string[];
     slug: string;

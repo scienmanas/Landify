@@ -1,5 +1,6 @@
 ---
-publishDate: "Sept 3, 2024"
+publishedDate: 2024-09-09T00:00:00Z
+head: Get insights
 title: Insides from the Landify theme - Author version
 description: Read about the backstory how this template was developed.
 image: https://raw.githubusercontent.com/scienmanas/Gagan-Vedhi-Website/main/src/content/images_posts/cosmic-innovation-challenge-space-sustainability-track.png

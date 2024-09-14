@@ -102,7 +102,11 @@ export function Navbar(): JSX.Element {
             <div
               className={`link-tabs relative inset-0 w-full p-[2px] h-fit items-center`}
             >
-              <div className="absolute z-0 glow-gradient flex sm:hidden bg-transparent bg-gradient-to-br from-purple-600 to-pink-500 w-full h-full inset-0 rounded-lg m-auto blur-md"></div>
+              {
+                isHamburgerOpened && 
+                <div className="absolute z-0 glow-gradient flex sm:hidden bg-transparent bg-gradient-to-br from-purple-600 to-pink-500 w-full h-full inset-0 rounded-lg m-auto blur-md"></div>
+
+              }
               <div
                 className={`relative z-10 bg-[#f4f4f5] dark:bg-[#18181b] sm:dark:bg-transparent sm:bg-transparent w-full h-full content-wrapper flex sm:flex-row flex-col gap-4 rounded-lg  p-4 sm:p-0 sm:items-center items-start sm:border-none border-2 border-purple-600 sm:flex ${
                   isHamburgerOpened ? "flex" : "hidden"

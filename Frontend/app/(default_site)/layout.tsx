@@ -3,15 +3,15 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import { Viewport } from "next";
 import { Navbar } from "@/app/ui/universal/Navbar";
-import displayImg from "@/public/assets/metadata/display.png";
+import displayImg from "@/public/assets/metadata/landing/display.png";
 import { ThemeProvider } from "next-themes";
 import { Footer } from "@/app/ui/universal/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://landify-sepia.vercel.app"),
-  title: "Blogs - Landify",
+  metadataBase: new URL(process.env.DOMAIN as string),
+  title: process.env.SITE_NAME as string,
   description:
     "An awesome template to make your landing page faster. Make the landing page of your next SaaS impressive nad awesome.",
   keywords:
@@ -19,18 +19,18 @@ export const metadata: Metadata = {
   authors: { name: "Manas", url: "https://github.com/scienmanas" },
   robots: "index, follow",
   openGraph: {
-    title: "Landingo",
+    title: "Landify",
     description:
       "An awesome template to make your landing page faster. Make the landing page of your next SaaS impressive nad awesome.",
-    url: "https://landify-sepia.vercel.app", // replace with your actual domain
+    url: process.env.DOMAIN, // replace with your actual domain
     type: "website",
     locale: "en_US",
-    siteName: "Landingo",
+    siteName: process.env.SITE_NAME as string,
     images: displayImg.src,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Landify",
+    title: process.env.SITE_NAME as string,
     description:
       "An awesome template to make your landing page faster. Make the landing page of your next SaaS impressive nad awesome.",
     // site: "@certimailer", // replace with your actual Twitter handle

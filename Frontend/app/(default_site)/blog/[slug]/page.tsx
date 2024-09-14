@@ -1,5 +1,6 @@
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import { getBlogPostData } from "@/app/utils/getBlogData";
+import { getFormattedDate } from "@/app/utils/dateFormatter";
 import Markdown from "markdown-to-jsx";
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
@@ -24,58 +25,102 @@ type SharingLinkConfigProps = {
 }[];
 
 // Dynamically generate the meta data
-// export async function generateMetadata(
-//   { params }: BlogPageProps,
-//   parent: ResolvingMetadata
-// ): Promise<Metadata> {
-//   return null;
-//   //   return {
-//   //     // title: product.title,
-//   //     openGraph: {
-//   //       images: ["/some-specific-page-image.jpg", ...previousImages],
-//   //     },
-//   //   };
-// }
+export async function generateMetadata({
+  params,
+}: BlogPageProps): Promise<Metadata> {
+  const blogData = getBlogPostData("blogs", params.slug);
+
+  // construct dynamic url for og image generation
+  const ogImageURL = `${process.env.DOMAIN}` + blogData.image;
+
+  return {
+    metadataBase: new URL(process.env.DOMAIN as string),
+    title: `${blogData.head} - Blogs`,
+    description: blogData.title,
+    keywords: ["reading", "article", "tech", "knowledge"],
+    robots: "index, follow",
+    openGraph: {
+      title: blogData.title,
+      description: blogData.description,
+      url: `${process.env.DOMAIN}/blog/${params.slug}`,
+      images: [ogImageURL],
+      type: "article",
+      siteName: `Landify`,
+      locale: "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blogData.title,
+      description: blogData.description,
+      images: [ogImageURL],
+      creator: "@ScientistManas",
+    },
+  };
+}
 
 export default function BlogsPage({ params }: BlogPageProps): JSX.Element {
-  // Get the blog data
-  const blogData = getBlogPostData("blogs", params.slug);
-  console.log(blogData);
+  const pageURL = process.env.DOMAIN + `/blog/${params.slug}`; // get the URL of the page
+  const blogData = getBlogPostData("blogs", params.slug); // Get the blog data
+
+  // Calculate reading time
   const totalWords = blogData.content.split(/\s+/).filter((element) => {
     return element.length !== 0;
   }).length;
-  const readingTimeInMin = "2 min"; // per minute readtime - 240
+  const readTime = totalWords / 250; // (in min)
+  let readTimeDisp: number;
+  let readTimeDisText: string;
+
+  // If the read time is less than a minute
+  if (Math.ceil(readTime) === 0) {
+    readTimeDisp = Math.ceil(readTime * 60); // Convert to seconds
+    readTimeDisText = `${readTimeDisp} sec`; // Use template literals
+    // For hour conversion
+  } else if (Math.ceil(readTime) >= 60) {
+    readTimeDisp = Math.ceil(readTime / 60); // Convert to hours
+    readTimeDisText = `${readTimeDisp} hr`; // Use template literals
+  } else {
+    readTimeDisp = Math.ceil(readTime); // Keep as minutes
+    readTimeDisText = `${readTimeDisp} min`; // Use template literals
+  }
 
   // All sharing format
   const sharingConfig: SharingLinkConfigProps = [
     {
       name: "whatsapp",
       icon: FaWhatsapp,
-      link: "",
+      link: `https://wa.me/?text=${encodeURIComponent(pageURL)}`,
       className: "hover:text-green-600 dark:hover:text-green-400",
     },
     {
       name: "Mail",
       icon: IoMailOpenOutline,
-      link: "",
+      link: `mailto:?subject=${encodeURIComponent(
+        `Read the blog: "${blogData.title}"`
+      )}&body=${encodeURIComponent(pageURL)}`,
       className: "hover:text-blue-500 dark:hover:text-blue-400",
     },
     {
       name: "Twiiter (X)",
       icon: FaXTwitter,
-      link: "",
+      link: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+        pageURL
+      )}&text=${encodeURIComponent(`Read the blog: "${blogData.title}"`)}`,
       className: "hover:text-neutral-700 dark:hover:text-neutral-300",
     },
     {
       name: "Linkedin",
       icon: FaLinkedinIn,
-      link: "",
+      link: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+        pageURL
+      )}`,
       className: "hover:text-blue-500 dark:hover:text-blue-400",
     },
     {
       name: "Facebook",
       icon: FaFacebookF,
-      link: "",
+      link: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        pageURL
+      )}`,
       className: "hover:text-blue-700 dark:hover:text-blue-500",
     },
   ];
@@ -90,11 +135,13 @@ export default function BlogsPage({ params }: BlogPageProps): JSX.Element {
                 <div className="date-and-read flex flex-row gap-1 text-sm sm:text-base">
                   <div className="w-fit h-fit date flex flex-row gap-1 items-center text-neutral-700 dark:text-neutral-400">
                     <FaRegClock />
-                    <span className="w-fit h-fit">{blogData.publishDate}</span>
+                    <span className="w-fit h-fit">
+                      {getFormattedDate(blogData.publishedDate)}
+                    </span>
                   </div>
                   <div className="w-fit h-fit">·</div>
                   <div className="w-fit h-fit read-time text-neutral-700 dark:text-neutral-400">
-                    {readingTimeInMin}
+                    {readTimeDisText}
                   </div>
                 </div>
                 <div className="title font-bold text-2xl lg:text-5xl text-neutral-800 dark:text-neutral-200">
