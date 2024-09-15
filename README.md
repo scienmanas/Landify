@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="" alt="Logo">
+  <img src="https://github.com/user-attachments/assets/f4071c70-da66-4ad9-9a1b-b09af7afbf35" alt="Logo">
 </div>
 
 # 🔰 Landify
@@ -193,6 +193,9 @@ Follow the following instruction to setup the project and run locally
 Contributions are always welcome! Additionally you can contact me by my email: **iamscientistmanas@gmail.com**. I am currently working on a .md based blog engine for this template
 
 ## 📷 Video
+
+https://github.com/user-attachments/assets/365f919a-84ba-47e8-a664-ea4d45f90e90
+
 
 ## 🙌 Credits & Acknowledgements
 
