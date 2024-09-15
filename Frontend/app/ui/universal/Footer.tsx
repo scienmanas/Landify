@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import logo from "@/public/assets/logo/logo.png";
@@ -8,6 +10,7 @@ import { FaYoutube } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 import { FiGithub } from "react-icons/fi";
 import { SiFarcaster } from "react-icons/si";
+import { useState } from "react";
 
 export function Footer(): JSX.Element {
   // Define all the link
@@ -77,6 +80,11 @@ export function Footer(): JSX.Element {
       link: "https://warpcast.com/",
     },
   ];
+
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    // Prevent relaoding
+    e.preventDefault();
+  };
 
   return (
     <footer className="w-full h-fit border-t dark:border-[#3b3b41] border-[#d4d4d8] flex items-center justify-center">

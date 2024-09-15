@@ -46,7 +46,7 @@ export function getBlogPostData(folderPath: string, slug: string) {
 
   try {
     // Check if the file exists
-    if (fs.existsSync(file)) {
+    if (!fs.existsSync(file)) {
       notFound();
     }
     // Read markdown file and extract front matter
