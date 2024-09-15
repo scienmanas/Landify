@@ -13,7 +13,6 @@
 - **Client:** Next JS, TailwindCSS
 - **Server:** Node, Express
 - **Datebase:** Mongo DB
-- **Animations**: Framer Motion
 
 ## 📦 API Reference, Routes & Misc
 

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://landify-sepia.vercel.app
+
+# Sitemaps
+Sitemap: https://landify-sepia.vercel.app/sitemap.xml
