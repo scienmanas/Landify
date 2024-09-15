@@ -90,46 +90,4 @@ router.post("/test", async (req: Request, res: Response) => {
   }
 });
 
-// Route - 3: Mailing by user credentials
-router.post("/user-own", async (req: Request, res: Response) => {
-  // Get the body as well as auth credentials
-  const {
-    fromName = "",
-    toName = "",
-    toEmail,
-    subject,
-    message,
-    EMAIL,
-    PASSWORD,
-    host,
-  } = req.body;
-
-  // Create Transporter
-  const transporter = nodemailer.createTransport({
-    host: host,
-    port: PORT,
-    secure: true,
-    auth: {
-      user: EMAIL,
-      pass: PASSWORD,
-    },
-  });
-
-  // Mail options
-  const mailOptions: nodemailer.SendMailOptions = {
-    from: `${fromName} <${EMAIL}>`,
-    to: `${toName} <${toEmail}>`,
-    subject: subject,
-    text: message,
-  };
-
-  try {
-    const info = await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: "Mail sent successfully" });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
-});
-
 export default router;

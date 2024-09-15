@@ -3,6 +3,8 @@ import cors from "cors";
 import { config } from "dotenv";
 // Unitlity and Routes
 import { connectToDB } from "./config/db";
+import userRoute from "./routes/user";
+import emailRoute from "./routes/send-email";
 
 // load env
 config();
@@ -25,6 +27,8 @@ const corsConfig = {
 // middleware to use import routes and enable cors
 app.use(express.json());
 app.use(cors(corsConfig));
+app.use("/api/send-email", emailRoute);
+app.use("/api/user", userRoute);
 
 // Routes
 

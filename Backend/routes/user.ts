@@ -5,7 +5,7 @@ import { newsLetterParams } from "../lib/definitions";
 const router = Router();
 
 // Route - 1 : Insert wailist user
-router.post("/newsletter-insert-user", async (req: Request, res: Response) => {
+router.post("/newsletter-user", async (req: Request, res: Response) => {
   // Get the body
   const email: newsLetterParams = req.body;
   let EMAIL_API: string = "";
@@ -45,3 +45,5 @@ router.post("/newsletter-insert-user", async (req: Request, res: Response) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
+export default router;

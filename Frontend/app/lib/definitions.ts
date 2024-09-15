@@ -1,7 +1,9 @@
+// denitions file for the project
+
 import { StaticImageData } from "next/image";
 
 export type MarqueeProps = {
-  svgs: string[];
+  svgs: StaticImageData[];
 };
 
 export type FeaturesOnlyTextProps = {
@@ -21,4 +23,10 @@ export type BlogPostMetaDataProps = {
     tags: string[];
     slug: string;
   };
+};
+
+export type submissionLoaderProps = {
+  width: number;
+  height: number;
+  color: string;
 };

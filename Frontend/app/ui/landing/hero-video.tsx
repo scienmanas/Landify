@@ -3,16 +3,22 @@
 import Image, { StaticImageData } from "next/image";
 import { useState, useRef } from "react";
 import { IoPlayOutline } from "react-icons/io5";
-interface VideoProps {
-  videoData: {
-    img: StaticImageData;
-    video: string;
-    heading: string;
-    description: string;
-  };
+import placeholderImg from "@/public/assets/landing/hero/images/hero.png";
+interface heroVideoProps {
+  img: StaticImageData;
+  video: string;
+  heading: string;
+  description: string;
 }
 
-export function HighLightedVideo({ videoData }: VideoProps): JSX.Element {
+const ImgVideoData: heroVideoProps = {
+  img: placeholderImg,
+  video: "/assets/landing/hero/videos/hero.mp4",
+  heading: "Highlight the Features",
+  description: "A fully customizable landing template.",
+};
+
+export function HeroVideo(): JSX.Element {
   const [isVideoPlayed, setIsVideoPlayed] = useState<boolean>(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -20,10 +26,10 @@ export function HighLightedVideo({ videoData }: VideoProps): JSX.Element {
     <div className="relative highlightedVideo w-full h-fit flex flex-col items-center justify-center gap-8 p-8">
       <div className="head-and-description flex flex-col gap-4 items-center justify-center">
         <h1 className="w-fit h-fit text-center text-transparent bg-clip-text bg-gradient-to-br dark:from-purple-400 from-purple-700 dark:to-purple-200 to-neutral-700 sm:text-lg text-base font-bold ">
-          {videoData.heading}
+          {ImgVideoData.heading}
         </h1>
         <p className="w-fit h-fit text-center sm:text-2xl text-xl text-transparent bg-clip-text bg-gradient-to-tr dark:from-purple-200 dark:to-slate-500 from-neutral-800 to-neutral-900 font-semibold">
-          {videoData.description}
+          {ImgVideoData.description}
         </p>
       </div>
       <div className="relative video-image-placeholder rounded-xl w-full h-fit before:absolute before:h-[100%] before:w-full before:bg-gradient-radial before:from-purple-500 before:to-purple-800 dark:to-black before:opacity-60 before:blur-2xl before:content-[''] before:right-5 before:-top-5 after:absolute after:h-[100%] after:w-full after:bg-gradient-radial after:from-purple-500 dark:after:to-purple-500 after:to-purple-800 after:blur-2xl after:opacity-60 after:content-[''] after:left-5 after:-bottom-5 after:z-0">
@@ -31,7 +37,7 @@ export function HighLightedVideo({ videoData }: VideoProps): JSX.Element {
           <div className="relative z-10 placehold-image  md:w-[700px] lg:w-[800px] flex items-center justify-center">
             <Image
               className="w-full relative rounded-xl"
-              src={videoData.img}
+              src={ImgVideoData.img}
               alt="placeholder-img"
             />
             <button
@@ -59,7 +65,7 @@ export function HighLightedVideo({ videoData }: VideoProps): JSX.Element {
             controls
             className="w-[800px] h-auto rounded-lg"
           >
-            <source src={videoData.video} type="video/mp4" />
+            <source src={ImgVideoData.video} type="video/mp4" />
             {/* <track /> If you have subtitles you can set it */}
           </video>
         </div>
