@@ -1,63 +1,31 @@
-import type { Metadata } from "next";
+// Import the Inter font from Google Fonts with the specified subset
 import { Inter } from "next/font/google";
+// Import global CSS styles
 import "./globals.css";
+// Import Viewport type for setting viewport properties
 import { Viewport } from "next";
-import { Navbar } from "@/app/ui/landing/Navbar";
-import displayImg from "@/public/assets/metadata/display.png";
+// Import ThemeProvider to handle theme-based styling
 import { ThemeProvider } from "next-themes";
 
+// Configure the Inter font with Latin subset
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://landify-sepia.vercel.app"),
-  title: "Landify",
-  description:
-    "An awesome template to make your landing page faster. Make the landing page of your next SaaS impressive nad awesome.",
-  keywords:
-    "SaaS, landing-page, impressive, free, open-source, awesome-landing-page",
-  authors: { name: "Manas", url: "https://github.com/scienmanas" },
-  robots: "index, follow",
-  openGraph: {
-    title: "Landingo",
-    description:
-      "An awesome template to make your landing page faster. Make the landing page of your next SaaS impressive nad awesome.",
-    url: "https://landify-sepia.vercel.app", // replace with your actual domain
-    type: "website",
-    locale: "en_US",
-    siteName: "Landingo",
-    images: displayImg.src,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Landify",
-    description:
-      "An awesome template to make your landing page faster. Make the landing page of your next SaaS impressive nad awesome.",
-    // site: "@certimailer", // replace with your actual Twitter handle
-    creator: "@ScientistManas", // replace with your actual Twitter handle
-    images: displayImg.src,
-  },
-};
-
+// Define viewport settings, such as the theme color
 export const viewport: Viewport = {
   themeColor: "purple",
 };
 
+// RootLayout component that sets up the main layout for the application
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode; // React nodes to be rendered within the layout
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-white dark:bg-[#18181b]`}>
-        <ThemeProvider attribute="class">
-          <div className="page-contents relative w-full h-fit flex flex-col items-center justify-center">
-            <section className="nav z-10 fixed flex w-full h-fit top-0 items-center justify-center">
-              <Navbar />
-            </section>
-            <section className="relative z-0 child-body">{children}</section>
-          </div>
-        </ThemeProvider>
+        {/* Wrap children with ThemeProvider to enable theme-based styling */}
+        <ThemeProvider attribute="class">{children}</ThemeProvider>
       </body>
     </html>
   );

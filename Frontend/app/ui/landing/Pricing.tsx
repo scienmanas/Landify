@@ -1,12 +1,15 @@
+// Importing necessary hooks and components from React and React Icons
 "use client";
 
 import { useState } from "react";
 import { TiTick } from "react-icons/ti";
 
+// Pricing component definition
 export function Pricing(): JSX.Element {
-  // manage the pricing switch
+  // State to manage the pricing switch between monthly and yearly
   const [pricedYearly, setPricedYearly] = useState<boolean>(false);
 
+  // Pricing options data
   const pricingOptions = [
     {
       plan: "Free",
@@ -19,7 +22,7 @@ export function Pricing(): JSX.Element {
         "Integrations",
         "Connect to your database",
         "Data storage (Up to 5 GB)",
-        "Email suport",
+        "Email support",
         "9 request/min",
         "Basic reports",
       ],
@@ -35,7 +38,7 @@ export function Pricing(): JSX.Element {
         "Integrations",
         "Connect to your database",
         "Data storage (Up to 50 GB)",
-        "Email suport",
+        "Email support",
         "100K request/min",
         "Priority support",
         "Professional reports",
@@ -55,8 +58,8 @@ export function Pricing(): JSX.Element {
         "Integrations",
         "Connect to your database",
         "Data storage (unlimited)",
-        "Importand export data",
-        "Email suport",
+        "Import and export data",
+        "Email support",
         "500K request/min",
         "Priority support",
         "Professional reports",
@@ -74,13 +77,16 @@ export function Pricing(): JSX.Element {
       id="pricing"
       className="w-full h-fit flex flex-col flex-wrap gap-12 items-center justify-center"
     >
+      {/* Header and description with pricing switch */}
       <div className="head-description-button flex flex-col items-center justify-center w-fit h-fit gap-4">
-        <div className="heading w-fit h-fit text-lg text-transparent  bg-clip-text bg-gradient-to-tr dark:from-purple-400 from-purple-800 dark:to-neutral-100 to-neutral-700">
+        {/* Heading */}
+        <div className="heading w-fit h-fit text-lg text-transparent bg-clip-text bg-gradient-to-tr dark:from-purple-400 from-purple-800 dark:to-neutral-100 to-neutral-700">
           Pricing
         </div>
+        {/* Description and switch for monthly/yearly pricing */}
         <div className="description-and-switch w-fit h-fit flex flex-col gap-2 items-center justify-center">
           <div className="description dark:text-neutral-200 text-neutral-700 text-2xl font-semibold">
-            A plan for every buisness
+            A plan for every business
           </div>
           <div
             className="switch cursor-pointer flex flex-row gap-2 w-fit h-fit items-center justify-center"
@@ -104,12 +110,14 @@ export function Pricing(): JSX.Element {
           </div>
         </div>
       </div>
-      <div className="pricing-content-wrappper w-fit h-fit flex flex-row gap-4 flex-wrap justify-center">
+      {/* Pricing options display */}
+      <div className="pricing-content-wrapper w-fit h-fit flex flex-row gap-4 flex-wrap justify-center">
         {pricingOptions.map((pricingData, index) => (
           <div
             key={index}
-            className={`relative pricing-sub-wrapper  w-fit flex items-center justify-center rounded-xl`}
+            className={`relative pricing-sub-wrapper w-fit flex items-center justify-center rounded-xl`}
           >
+            {/* Highlight the 'Professional' plan with a gradient border */}
             {pricingData.plan === "Professional" && (
               <div className="border-gradient absolute z-0 w-[101.2%] h-[100.8%] bg-transparent bg-gradient-to-br from-purple-800 to-[#3b3b42] rounded-xl"></div>
             )}
@@ -120,15 +128,17 @@ export function Pricing(): JSX.Element {
                   : null
               } rounded-xl flex-col justify-between gap-8`}
             >
-              <div className="deatils w-[243px] flex flex-col gap-5">
-                <div className="details-sub-wrappe flex flex-col gap-6 h-fit">
+              {/* Plan details */}
+              <div className="details w-[243px] flex flex-col gap-5">
+                <div className="details-sub-wrapper flex flex-col gap-6 h-fit">
                   <div
                     className={`plan-pricing-wrapper relative w-full h-fit flex flex-col items-start gap-2`}
                   >
                     <div className="plan-popular-wrapper w-full h-fit flex flex-row justify-between items-center">
-                      <div className="name text-transparent bg-clip-text bg-gradient-to-tr dark:from-purple-400 dark:to-neutral-200 from-neutral-800 to-neutral-900 font-semibold w-fit h-fit ">
+                      <div className="name text-transparent bg-clip-text bg-gradient-to-tr dark:from-purple-400 dark:to-neutral-200 from-neutral-800 to-neutral-900 font-semibold w-fit h-fit">
                         {pricingData.plan}
                       </div>
+                      {/* Highlight 'Professional' plan as popular */}
                       {pricingData.plan === "Professional" && (
                         <div className="popular bg-purple-800 text-sm text-neutral-300 px-3 py-1 rounded-3xl w-fit h-fit">
                           Popular
@@ -155,6 +165,7 @@ export function Pricing(): JSX.Element {
                     </div>
                   </div>
                 </div>
+                {/* Features list */}
                 <div className="features-provided-wrapper w-fit h-fit flex flex-col gap-1">
                   {pricingData.features.map((feature, index) => (
                     <div
@@ -171,6 +182,7 @@ export function Pricing(): JSX.Element {
                   ))}
                 </div>
               </div>
+              {/* 'Get started' button */}
               <div
                 className={`button w-full h-fit text-center border-2 py-2 rounded-lg font-semibold ${
                   pricingData.plan === "Professional"

@@ -1,14 +1,24 @@
-"use client";
+// Importing React hooks and icons
+"use client"; // Ensure this component is a client-side component
 
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
+// Interface defining the structure of each FAQ item
+interface FAQItem {
+  question: string; // The question text
+  answer: string; // The answer text
+}
+
+// Component that displays frequently asked questions (FAQ) with expandable answers
 export function FAQ(): JSX.Element {
+  // State to track which FAQ is currently open
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const FaqData = [
+  // Array containing FAQ data
+  const faqData: FAQItem[] = [
     {
-      question: "Who are the audience ?",
+      question: "Who are the audience?",
       answer:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fermentum orci a augue sodales dapibus. Curabitur sollicitudin, enim id dapibus hendrerit, magna nunc egestas ante, sit amet ultricies velit dui nec odio. Proin varius erat ut turpis pharetra, quis volutpat elit facilisis. Aliquam ac eros eget sem elementum lacinia. Fusce dignissim malesuada ipsum ac ornare. Suspendisse potenti. Maecenas et ex orci. Sed tincidunt justo vitae metus feugiat vestibulum.",
     },
@@ -45,16 +55,16 @@ export function FAQ(): JSX.Element {
         </div>
       </div>
       <div className="faq-wrapper w-fit h-fit flex flex-col gap-4 p-4">
-        {FaqData.map((faq, index) => (
+        {faqData.map((faq, index) => (
           <div
             key={index}
-            className="individual-wrapper h-fit max-w-[766px]  w-fit text-wrap flex flex-col border dark:border-[#3b3b41] border-[#d4d4d8] rounded-lg group dark:hover:border-purple-900 hover:border-[#d9d9f3] duration-300 items-center"
+            className="individual-wrapper h-fit max-w-[766px] w-fit text-wrap flex flex-col border dark:border-[#3b3b41] border-[#d4d4d8] rounded-lg group dark:hover:border-purple-900 hover:border-[#d9d9f3] duration-300 items-center"
           >
             <div
               onClick={() => setOpenIndex(index === openIndex ? null : index)}
               className="question-and-button py-4 px-6 flex flex-row items-center w-full h-full transition duration-300 cursor-pointer justify-between group"
             >
-              <div className="question font-semibold dark:text-neutral-200 text-neutral-600 dark:group-hover:text-purple-300 group-hover:text-purple-800 duration-300 text-base  md:text-lg">
+              <div className="question font-semibold dark:text-neutral-200 text-neutral-600 dark:group-hover:text-purple-300 group-hover:text-purple-800 duration-300 text-base md:text-lg">
                 {faq.question}
               </div>
               <div className="button-arrow group">
@@ -66,7 +76,7 @@ export function FAQ(): JSX.Element {
               </div>
             </div>
             <div
-              className={`answer px-6 overflow-hidden transition-[max-height] duration-700 ease-in-out `}
+              className={`answer px-6 overflow-hidden transition-[max-height] duration-700 ease-in-out`}
               style={{ maxHeight: openIndex === index ? "1000px" : "0px" }}
             >
               <p className="dark:text-neutral-300 text-neutral-800 py-4 md:text-base text-sm">
