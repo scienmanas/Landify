@@ -90,9 +90,8 @@ Follow the following instruction to setup the project and run locally
 
 ## ⚡ Features
 
-- `Various News Types Supported:` World, General, Nation, Business, Technology, Entertainment, Sports, Science, Health.
-
-- `Wide Range of Countries Supported:` India, Brazil, Canada, France, Japan, United States
+- Very easy to customize and deploy just be changing variables values
+- Static blog section, which doesn't require backend setup.
 
 ## 📁 File Structure :
 
