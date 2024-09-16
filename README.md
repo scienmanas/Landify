@@ -6,7 +6,7 @@
 
 - A template which can used for your next SaaS product, its completely free, have already configured basic backend, fully written in typescript. Make your landing page a little cool.
 
-- For this project I only deployed [frontend](https://landify-sepia.vercel.app/) on `vercel` under free tier, but many services such as `EC2`, `render.com` can be used to node backend.
+- For this project I only deployed [frontend](https://landify-sepia.vercel.app/) on `vercel` under free tier, but many services such as `EC2`, `render.com` can be used to deploy the node backend.
 
 ## 📚 Tech Stack
 
