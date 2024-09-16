@@ -130,6 +130,7 @@ export function Navbar(): JSX.Element {
                                   behavior: "smooth",
                                 });
                               }
+                              setIsHamburgerOpened(!isHamburgerOpened);
                             }}
                             className="dark:text-neutral-300 dark:hover:text-neutral-200 duration-200 text-neutral-700 hover:text-neutral-950"
                           >
@@ -137,6 +138,7 @@ export function Navbar(): JSX.Element {
                           </Link>
                         ) : (
                           <Link
+                            onClick={() => setIsHamburgerOpened(!isHamburgerOpened)}
                             href={tab.link}
                             className="dark:text-neutral-300 dark:hover:text-neutral-200 duration-200 text-neutral-700 hover:text-neutral-950"
                           >
