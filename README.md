@@ -22,9 +22,7 @@
 | `/api/services/send-email/admin` | `POST` | Yes       | `fromName`, `toName`, `toEmail`, `subject`, `message` (all body) | Used to send mails                   |
 | `/api/services/send-email/test`  | `POST` | Yes       | `toName`, `toEmail`, `subject`, `message` (all body)             | Used to send mails                   |
 
-- This project also has a `cron-job` which runs every `20 minutes` to add new data to database. This may be commmented while on development mode (suggested).
-- Also a `cron-job` to delete database items is scheduled and run `once every day` to delete 5 items from database. This may be also commmented while on development mode (suggested).
-- `Vercel Analytics` is also enabled for this web app
+- `Vercel Analytics` is can be enabled for user monitoring.
 
 ## 🔩 Environment Variables
 
